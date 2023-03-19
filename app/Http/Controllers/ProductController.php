@@ -8,6 +8,9 @@ use Exception;
 use Illuminate\Http\Request;
 use Throwable;
 
+/**
+ * Summary of ProductController
+ */
 class ProductController extends Controller
 {
     /**
@@ -133,4 +136,13 @@ class ProductController extends Controller
             return response()->json(['message'=>"Product with id:$id doesn't found",'status_code'=>400,]);
         }
     }
+
+      public function search(Product $product,string $name){
+        
+        $products = Product::query()->where('name','like','%'.$name.'%')->get();
+        return response()->json(['message'=>'Success','status_code'=>200,'data'=>$products]);
+    }
+
+  
 }
+
