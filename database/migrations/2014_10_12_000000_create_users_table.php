@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_img_url');
-            $table->string('whatsapp_url');
-            $table->string('facebook_url');
+            $table->integer('age');
+            $table->string('profile_img_url')->nullable();
+            $table->string('whatsapp_url')->nullable();
+            $table->string('facebook_url')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

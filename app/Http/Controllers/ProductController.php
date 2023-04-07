@@ -137,7 +137,12 @@ class ProductController extends Controller
         }
     }
 
-      public function search(Product $product,string $name){
+      /**
+       * Summary of search
+       * @param string $name
+       * @return \Illuminate\Http\JsonResponse
+       */
+      public function search(string $name){
         
         $products = Product::query()->where('name','like','%'.$name.'%')->get();
         return response()->json(['message'=>'Success','status_code'=>200,'data'=>$products]);
